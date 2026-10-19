@@ -1,0 +1,24 @@
+
+/* GDLauncher image: taskbar and window control buttons (appended to the base style.css) */
+#taskbar button {
+    padding: 0 0.6em;
+    background: @mode;
+    color: @light;
+}
+#taskbar button.active {
+    background: @workspacesfocused;
+}
+#custom-float,
+#custom-fullscreen,
+#custom-close {
+    padding: 0 0.8em;
+    background: @mode;
+    color: @light;
+}
+#custom-float:hover,
+#custom-fullscreen:hover {
+    background: @workspacesfocused;
+}
+#custom-close:hover {
+    background: @critical;
+}

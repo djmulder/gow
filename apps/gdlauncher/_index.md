@@ -15,3 +15,7 @@ it survives container restarts. Instances get large; mount a bigger volume on th
 
 - Electron runs with `--no-sandbox`; extra flags go in the `GDLAUNCHER_STARTUP_FLAGS` environment variable.
 - Minecraft needs a GPU: pass the render device to the app as for the other GoW apps.
+
+## Window controls
+
+Sway has no title-bar buttons, so the image ships its own toolbar (`build/configs/`): a taskbar (click focuses, middle-click closes) and Float / Fullscreen / Close buttons that act on the focused window. `startup.sh` rewrites `~/.config/waybar/{config.jsonc,style.css}` and `~/.config/sway/custom-cfg` on every start, so these files are managed by the image, not by the profile home. Keyboard: Alt+F fullscreen, Alt+Shift+Space float, Alt+F4 close.

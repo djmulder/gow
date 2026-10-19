@@ -67,6 +67,8 @@ _INSTALL_GDLAUNCHER
 WORKDIR /
 
 COPY --chmod=777 scripts/startup.sh /opt/gow/startup-app.sh
+# Managed desktop config (taskbar, window buttons); startup.sh installs it into the profile home on every start
+COPY --chmod=755 configs/ /opt/gdl-cfg/
 
 ENV XDG_RUNTIME_DIR=/tmp/.X11-unix
 

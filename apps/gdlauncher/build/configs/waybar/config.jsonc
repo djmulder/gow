@@ -1,0 +1,61 @@
+// -*- mode: jsonc -*-
+// Managed by the GDLauncher image: rewritten into ~/.config/waybar on every start.
+// Adds a taskbar (click = focus, middle-click = close) and Float / Fullscreen / Close buttons that act on the focused window.
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "spacing": 4,
+  "modules-left": [
+    "sway/workspaces",
+    "wlr/taskbar"
+  ],
+  "modules-center": [
+    "sway/window"
+  ],
+  "modules-right": [
+    "custom/float",
+    "custom/fullscreen",
+    "custom/close",
+    "pulseaudio",
+    "custom/clock"
+  ],
+  "wlr/taskbar": {
+    "format": "{icon} {title:.22}",
+    "icon-size": 16,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close"
+  },
+  "sway/window": {
+    "max-length": 50
+  },
+  "custom/float": {
+    "format": " Float",
+    "tooltip-format": "Toggle floating / tiled for the focused window",
+    "on-click": "swaymsg floating toggle"
+  },
+  "custom/fullscreen": {
+    "format": " Full",
+    "tooltip-format": "Toggle fullscreen for the focused window",
+    "on-click": "swaymsg fullscreen toggle"
+  },
+  "custom/close": {
+    "format": " Close",
+    "tooltip-format": "Close the focused window",
+    "on-click": "swaymsg kill"
+  },
+  "custom/clock": {
+    "format": "  {}",
+    "tooltip": false,
+    "interval": 60,
+    "exec": "date +'%d %a %H:%M'"
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-muted": "muted",
+    "format-icons": {
+      "default": ["", "", ""]
+    }
+  }
+}
