@@ -9,3 +9,8 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="utility"] floating enable
 for_window [window_type="splash"] floating enable
 for_window [window_role="pop-up"] floating enable
+
+# Clicking a taskbar entry must keep focus when the mouse moves away from the bar.
+focus_follows_mouse no
+# Windows fill the screen and are switched via the taskbar or tabs, instead of being split side by side.
+workspace_layout tabbed

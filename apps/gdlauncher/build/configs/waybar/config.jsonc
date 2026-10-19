@@ -37,8 +37,8 @@
   },
   "custom/max": {
     "format": " Max",
-    "tooltip-format": "Maximize: tiled, fills the screen below the bar (leaves fullscreen)",
-    "on-click": "swaymsg 'fullscreen disable; floating disable'"
+    "tooltip-format": "Maximize: every window fills the screen below the bar, switch with the taskbar or tabs",
+    "on-click": "swaymsg 'fullscreen disable; floating disable; layout tabbed'"
   },
   "custom/close": {
     "format": " Close",
