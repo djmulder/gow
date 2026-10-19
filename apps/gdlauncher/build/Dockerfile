@@ -50,8 +50,13 @@ rm -rf /var/lib/apt/lists/* gdlauncher.deb latest-linux.yml
 # Find the installed executable and expose it as 'gdlauncher' (startup.sh calls that name)
 PKG=$(dpkg-query -W -f='${Package}\n' | grep -i -E '^gdlauncher' | head -1)
 [ -n "${PKG}" ] || { echo "GDLauncher package not found after install" >&2; exit 1; }
-BIN=$(dpkg -L "${PKG}" | grep -i -E '/gdlauncher$' | head -1)
-if [ -z "${BIN}" ] || [ ! -x "${BIN}" ]; then
+# The Electron binary of the .deb is /opt/GDLauncher/@gddesktop (the folder /opt/GDLauncher also matches by name,
+# so only accept regular executable files)
+BIN=""
+for f in $(dpkg -L "${PKG}" | grep -E '/(@gddesktop|gdlauncher)$'); do
+  if [ -f "$f" ] && [ -x "$f" ]; then BIN="$f"; break; fi
+done
+if [ -z "${BIN}" ]; then
   echo "GDLauncher executable not found, package contents:" >&2
   dpkg -L "${PKG}" >&2
   exit 1
