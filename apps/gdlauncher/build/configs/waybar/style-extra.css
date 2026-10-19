@@ -9,14 +9,14 @@
     background: @workspacesfocused;
 }
 #custom-float,
-#custom-fullscreen,
+#custom-max,
 #custom-close {
     padding: 0 0.8em;
     background: @mode;
     color: @light;
 }
 #custom-float:hover,
-#custom-fullscreen:hover {
+#custom-max:hover {
     background: @workspacesfocused;
 }
 #custom-close:hover {

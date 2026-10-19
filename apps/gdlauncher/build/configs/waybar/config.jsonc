@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 // Managed by the GDLauncher image: rewritten into ~/.config/waybar on every start.
-// Adds a taskbar (click = focus, middle-click = close) and Float / Fullscreen / Close buttons that act on the focused window.
+// Adds a taskbar (click = focus, middle-click = close) and Float / Max / Close buttons that act on the focused window.
 {
   "layer": "top",
   "position": "top",
@@ -15,7 +15,7 @@
   ],
   "modules-right": [
     "custom/float",
-    "custom/fullscreen",
+    "custom/max",
     "custom/close",
     "pulseaudio",
     "custom/clock"
@@ -32,13 +32,13 @@
   },
   "custom/float": {
     "format": " Float",
-    "tooltip-format": "Toggle floating / tiled for the focused window",
-    "on-click": "swaymsg floating toggle"
+    "tooltip-format": "Floating window you can move and resize",
+    "on-click": "swaymsg 'fullscreen disable; floating enable'"
   },
-  "custom/fullscreen": {
-    "format": " Full",
-    "tooltip-format": "Toggle fullscreen for the focused window",
-    "on-click": "swaymsg fullscreen toggle"
+  "custom/max": {
+    "format": " Max",
+    "tooltip-format": "Maximize: tiled, fills the screen below the bar (leaves fullscreen)",
+    "on-click": "swaymsg 'fullscreen disable; floating disable'"
   },
   "custom/close": {
     "format": " Close",
