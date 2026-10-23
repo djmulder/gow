@@ -1,9 +1,9 @@
 # Managed by the GDLauncher image: rewritten into ~/.config/sway on every start (included by the base sway config).
-# Mod1 is Alt. NOTE: this file is included at the TOP of the base sway config, before `set $mod` is defined, so the
-# literal Mod1 must be used here, not $mod. Close: Alt+F4 / Alt+Shift+Q (base config). Alt + middle click closes a window.
-bindsym Mod1+f fullscreen toggle
-bindsym Mod1+Shift+space floating toggle
-bindsym --whole-window Mod1+button2 kill
+# Mod4 is Super (Windows key); left Alt is left alone so games see it. NOTE: this file is included at the TOP of the base sway config, before `set $mod` is defined, so the
+# literal Mod4 must be used here, not $mod. Close: Alt+F4 / Super+Shift+Q (base config). Super + middle click closes a window.
+bindsym Mod4+f fullscreen toggle
+bindsym Mod4+Shift+space floating toggle
+bindsym --whole-window Mod4+button2 kill
 # Dialogs and pop-ups float instead of being squeezed into the tiled layout
 for_window [window_type="dialog"] floating enable
 for_window [window_type="utility"] floating enable

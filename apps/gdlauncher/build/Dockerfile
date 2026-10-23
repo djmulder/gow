@@ -70,6 +70,9 @@ COPY --chmod=777 scripts/startup.sh /opt/gow/startup-app.sh
 # Managed desktop config (taskbar, window buttons); startup.sh installs it into the profile home on every start
 COPY --chmod=755 configs/ /opt/gdl-cfg/
 
+# Sway's modifier is left Alt in the base config, which swallows Alt in games (Create schematic placement). Use Super.
+RUN sed -i 's/^set \$mod Mod1$/set $mod Mod4/' /cfg/sway/config && grep -q '^set \$mod Mod4$' /cfg/sway/config
+
 ENV XDG_RUNTIME_DIR=/tmp/.X11-unix
 
 ARG IMAGE_SOURCE
