@@ -14,6 +14,8 @@ ARG REQUIRED_PACKAGES=" \
     xdg-utils \
     libnotify4 \
     libsecret-1-0 \
+    xclip \
+    xdotool \
     "
 
 RUN apt-get update && \
@@ -67,6 +69,7 @@ _INSTALL_GDLAUNCHER
 WORKDIR /
 
 COPY --chmod=777 scripts/startup.sh /opt/gow/startup-app.sh
+COPY --chmod=755 scripts/gdl-paste.sh /opt/gow/gdl-paste.sh
 # Managed desktop config (taskbar, window buttons); startup.sh installs it into the profile home on every start
 COPY --chmod=755 configs/ /opt/gdl-cfg/
 
